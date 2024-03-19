@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using APIBlog.Modelos;
+using Microsoft.EntityFrameworkCore;
 
 namespace APIBlog.Data
 {
@@ -9,5 +10,6 @@ namespace APIBlog.Data
         }
 
         // Agregar Modelos
+        public DbSet<Post> Post { get; set; }
     }
 }
