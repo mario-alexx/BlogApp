@@ -9,12 +9,10 @@ namespace APIBlog.Repositorio
     public class PostRepositorio : IPostRepositorio
     {
         private readonly ApplicationDbContext _bd;
-        private readonly IMapper _mapper;
 
-        public PostRepositorio(ApplicationDbContext bd, IMapper mapper)
+        public PostRepositorio(ApplicationDbContext bd)
         {
             _bd = bd;
-            _mapper = mapper;
         }
 
         public bool ActualizarPost(Post post)

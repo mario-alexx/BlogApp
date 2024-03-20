@@ -14,6 +14,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(opciones =>
 
 // Add services to the container.
 builder.Services.AddScoped<IPostRepositorio, PostRepositorio>();
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 //Agregar automapper
 builder.Services.AddAutoMapper(typeof(BlogMapper));
