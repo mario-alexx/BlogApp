@@ -15,9 +15,10 @@ namespace APIBlog.Repositorio
         private readonly ApplicationDbContext _bd;
         private string claveSecreta;
 
-        public UsuarioRepositorio(ApplicationDbContext bd)
+        public UsuarioRepositorio(ApplicationDbContext bd, IConfiguration config)
         {
             _bd = bd;
+            claveSecreta = config.GetValue<string>("ApiSettings:Secreta");
         }
 
         public Usuario GetUsuario(int usuarioId)

@@ -2,6 +2,7 @@
 using APIBlog.Modelos.Dtos;
 using APIBlog.Repositorio.IRepositorio;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,7 @@ namespace APIBlog.Controllers
             _mapper = mapper;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -35,6 +37,7 @@ namespace APIBlog.Controllers
             return Ok(listaPostsDto);
         }
 
+        [AllowAnonymous]
         [HttpGet("{postId:int}", Name = "GetPost")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -53,6 +56,7 @@ namespace APIBlog.Controllers
             return Ok(itemPostDto);
         }
 
+        //[Authorize]
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(PostCrearDto))]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -86,6 +90,7 @@ namespace APIBlog.Controllers
             return CreatedAtRoute("GetPost", new { postId = post.Id }, post);
         }
 
+        //[Authorize]
         [HttpPatch("{postId:int}", Name ="ActualizarPatchPost")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -118,6 +123,7 @@ namespace APIBlog.Controllers
             return NoContent();
         }
 
+        //[Authorize]
         [HttpDelete("{postId:int}", Name = "BorrarPost")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

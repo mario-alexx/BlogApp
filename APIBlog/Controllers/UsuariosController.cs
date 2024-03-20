@@ -2,6 +2,7 @@
 using APIBlog.Modelos.Dtos;
 using APIBlog.Repositorio.IRepositorio;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -20,9 +21,10 @@ namespace APIBlog.Controllers
         {
             _usRepo = usuarioRepositorio;
             _mapper = mapper;
+            _respuestaApi = new();
         }
 
-        [HttpPost("Registro")]
+        [HttpPost("registro")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -52,7 +54,7 @@ namespace APIBlog.Controllers
             return Ok(_respuestaApi);
         }
 
-        [HttpPost("Login")]
+        [HttpPost("login")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -76,6 +78,7 @@ namespace APIBlog.Controllers
 
         // Endpoint's para usuarios (Obtener lista de usuarios o usuario por id)
 
+        //[Authorize]
         //[HttpGet]
         //[ProducesResponseType(StatusCodes.Status403Forbidden)]
         //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -93,6 +96,7 @@ namespace APIBlog.Controllers
         //    return Ok(listaUsuariosDto);
         //}
 
+        //[Authorize]
         //[HttpGet("{usuarioId:int}", Name ="GetUsuario")]
         //[ProducesResponseType(StatusCodes.Status403Forbidden)]
         //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
