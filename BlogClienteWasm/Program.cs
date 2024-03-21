@@ -13,6 +13,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 // Agregar servicios
 builder.Services.AddScoped<IPostServicio, PostServicio>();
+builder.Services.AddScoped<IServicioAutenticacion, ServicioAutenticacion>();
+
 
 // Usar Local Storage del navegador
 builder.Services.AddBlazoredLocalStorage();

@@ -2,9 +2,11 @@
 @using BlogClienteWasm.Modelos
 @using BlogClienteWasm.Servicios.IServicio
 @using System.Net.Http.Headers
+@using Microsoft.AspNetCore.Authorization
 @inject NavigationManager navigationManager
 @inject IPostServicio postServicio
 @inject IJSRuntime JsRuntime
+@attribute [Authorize]
 
 <h1 class="text-center">Editar Post</h1>
 

@@ -1,9 +1,45 @@
 ﻿@page "/"
+@using BlogClienteWasm.Modelos
+@using BlogClienteWasm.Servicios.IServicio
+@inject IJSRuntime JsRuntime
+@inject IPostServicio postServicio
 
 <PageTitle>Inicio</PageTitle>
 
-<h1>Últimos Posts</h1>
+<h1 class="text-center">Últimos Posts</h1>
+
+<div class="row">
+    @foreach (var post in Posts)
+    {
+        <div class="col-3 mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">@post.Titulo</h3>
+                </div>
+                <div class="card-body">
+                    <div class="card-header">
+                        <img src="@post.RutaImagen" class="img-fluid" />
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <NavLink href="@($"detalle-post/{post.Id}")">Mas información...</NavLink>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
 
 @code {
+    private IEnumerable<Post> Posts { get; set; } = new List<Post> ();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Posts = await postServicio.GetPosts();
+    }
 
 }

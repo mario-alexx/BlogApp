@@ -1,0 +1,30 @@
+﻿@page "/detalle-post/{Id:int}"
+@using BlogClienteWasm.Modelos
+@using BlogClienteWasm.Servicios.IServicio
+@using System.Reflection.Metadata
+@inject IJSRuntime JsRuntime
+@inject IPostServicio postServicio
+
+<PageTitle>Detalle Post</PageTitle>
+
+<h1 class="text-center">@Post.Titulo</h1>
+
+<div class="col-8 offset-2">
+    <img src="@Post.RutaImagen" class="img-fluid" />
+</div>
+<p>@Post.Descripcion</p>
+<h4><strong>Etiquetas: </strong>@Post.Etiqueta</h4>
+<h5><strong>Fecha de creación: </strong>@Post.FechaCreacion</h5>
+<NavLink href="/" class="btn btn-secondary"><i class="bi bi-arrow-left-circle-fill"></i>&nbsp; Volver a lista</NavLink> 
+
+@code {
+    private Post Post { get; set; } = new();
+
+    [Parameter]
+    public int? Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Post = await postServicio.GetPost(Id.Value);
+    }
+}

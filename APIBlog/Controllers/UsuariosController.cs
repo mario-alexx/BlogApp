@@ -97,7 +97,7 @@ namespace APIBlog.Controllers
         //}
 
         //[Authorize]
-        //[HttpGet("{usuarioId:int}", Name ="GetUsuario")]
+        //[HttpGet("{usuarioId:int}", Name = "GetUsuario")]
         //[ProducesResponseType(StatusCodes.Status403Forbidden)]
         //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
         //[ProducesResponseType(StatusCodes.Status200OK)]
