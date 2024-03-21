@@ -1,0 +1,55 @@
+﻿<!-- Modal -->
+<div class="modal fade" id="modalConfirmacionBorrado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmación Borrado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        @onclick="() => ConfirmacionOnCambia(false)">
+                </button>
+            </div>
+            <div class="modal-body">
+                Esta seguro que desea borrar?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => ConfirmacionOnCambia(false)">Cancelar</button>
+
+                @if (procesoIniciado)
+                {
+                    <button type="button" class="btn btn-danger">
+                        Procesando...
+                    </button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-danger" @onclick="() => ConfirmacionOnCambia(true)">
+                        <i class="bi bi-trash-fill"></i>&nbsp; Borrar
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    public bool procesoIniciado { get; set; } = false;
+    [Parameter]
+    public EventCallback<bool> CambioConfirmacion { get; set; }
+    [Parameter]
+    public bool ProcesandoComponentePadre { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        procesoIniciado = ProcesandoComponentePadre;
+    }
+
+    protected async Task ConfirmacionOnCambia(bool valor)
+    {
+        if (valor)
+        {
+            procesoIniciado = true;
+        }
+        await CambioConfirmacion.InvokeAsync(valor);
+    }
+}

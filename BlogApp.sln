@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBlog", "APIBlog\APIBlog.csproj", "{37386353-E70A-4EBC-BCBD-3269F87920FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogClienteWasm", "BlogClienteWasm\BlogClienteWasm.csproj", "{57741B76-BA86-4E0B-B365-B28EFC4A34C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogClienteWasm", "BlogClienteWasm\BlogClienteWasm.csproj", "{57741B76-BA86-4E0B-B365-B28EFC4A34C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

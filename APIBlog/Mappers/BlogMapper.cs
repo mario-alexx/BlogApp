@@ -12,10 +12,10 @@ namespace APIBlog.Mappers
             CreateMap<Post, PostCrearDto>().ReverseMap();
             CreateMap<Post, PostActualizarDto>().ReverseMap();
 
-            CreateMap<Usuario, UsuarioDto>().ReverseMap();
-            CreateMap<Usuario, UsuarioLoginDto>().ReverseMap();
-            CreateMap<Usuario, UsuarioLoginRespuestaDto>().ReverseMap();
-            CreateMap<Usuario, UsuarioRegistroDto>().ReverseMap();
+            //CreateMap<Usuario, UsuarioDto>().ReverseMap();
+            //CreateMap<Usuario, UsuarioLoginDto>().ReverseMap();
+            //CreateMap<Usuario, UsuarioLoginRespuestaDto>().ReverseMap();
+            //CreateMap<Usuario, UsuarioRegistroDto>().ReverseMap();
         }
     }
 }

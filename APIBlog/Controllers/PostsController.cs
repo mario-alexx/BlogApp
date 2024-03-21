@@ -92,7 +92,8 @@ namespace APIBlog.Controllers
 
         //[Authorize]
         [HttpPatch("{postId:int}", Name ="ActualizarPatchPost")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(201, Type = typeof(PostCrearDto))]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -106,11 +107,6 @@ namespace APIBlog.Controllers
             if (actualizarPostDto == null || postId != actualizarPostDto.Id)
             {
                 return BadRequest(ModelState);
-            }
-            if (_postRepo.ExistePost(actualizarPostDto.Titulo))
-            {
-                ModelState.AddModelError("", "El post ya existe");
-                return StatusCode(404, ModelState);
             }
 
             var post = _mapper.Map<Post>(actualizarPostDto);

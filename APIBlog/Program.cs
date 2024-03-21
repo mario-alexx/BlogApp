@@ -105,10 +105,10 @@ if (app.Environment.IsDevelopment())
 //Importante para habilitar que se  exponga el directorio de imagenes
 //Sin esto no se puede acceder
 app.UseStaticFiles(new StaticFileOptions()
-                   {
-                       FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"ImagenesPosts")),
-                       RequestPath = new PathString("/ImagenesPosts")
-                   });
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"ImagenesPosts")),
+    RequestPath = new PathString("/ImagenesPosts")
+});
 
 //Soporte para CORS
 app.UseCors("PolicyCors");

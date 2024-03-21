@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ImagenePosts\" />
+    <Folder Include="ImagenesPosts\" />
   </ItemGroup>
 
 </Project>
