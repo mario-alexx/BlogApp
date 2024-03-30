@@ -12,8 +12,11 @@
                 </NavLink>
                 <AuthorizeView>
                     <Authorized>
-                        <NavLink class="nav-link text-white" href="posts">
+                        <NavLink class="nav-link text-white" href="posts" Match="NavLinkMatch.All">
                             <span class="p-2"> Posts</span>
+                        </NavLink>
+                        <NavLink class="nav-link text-white" href="posts-radzen" Match="NavLinkMatch.All">
+                            <span class="p-2"> Posts Radzen</span>
                         </NavLink>
                     </Authorized>
                 </AuthorizeView>
@@ -25,7 +28,7 @@
                         <li class="nav-item p-0">
                             <NavLink class="nav-link text-white">
                                 <span class="p-2">
-                                    Bienvenido,
+                                    Bienvenido 
                                 </span>
                             </NavLink>
                         </li>

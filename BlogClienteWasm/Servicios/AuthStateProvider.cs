@@ -31,8 +31,8 @@ namespace BlogClienteWasm.Servicios
 
         public void NotificarUsuarioLogin(string token)
         {
-            var authenticacteUser = new ClaimsPrincipal(new ClaimsIdentity(JwtParser.ParseClaimsFromJwt(token)));
-            var authState = Task.FromResult(new AuthenticationState(authenticacteUser));
+            var authenticatedUser = new ClaimsPrincipal(new ClaimsIdentity(JwtParser.ParseClaimsFromJwt(token), "jwtAuthType"));
+            var authState = Task.FromResult(new AuthenticationState(authenticatedUser));
             NotifyAuthenticationStateChanged(authState);
         }
 
